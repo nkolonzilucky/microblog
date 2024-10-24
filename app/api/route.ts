@@ -4,14 +4,13 @@ import { NextResponse } from "next/server";
 // Get /api
 export async function GET(request: Request) {
     const posts = await prisma.post.findMany(
-        {
-         where: {
-            published: true,
-         },
-         include: {
-            author: true,
-         },
-        }
+        // {
+        //  where: {
+        //     published: true,
+        //  },
+        //  include: {
+        //     author: true,
+        //  },
+        // }
     );
-    return NextResponse.json(posts)
-}
+    return NextResponse.json({"thank you": "thanks"}) }
