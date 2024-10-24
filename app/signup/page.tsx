@@ -2,9 +2,12 @@
 import React from "react";
 import styles from "./SignUp.module.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function SignupPage() {
+    const router = useRouter();
     async function submitData(event:React.SyntheticEvent<HTMLFormElement>) {
+        event.preventDefault();
        const formData = new FormData(event.currentTarget)
        const name = String(formData.get('name'))
        const email = String(formData.get('email'))
@@ -19,6 +22,7 @@ export default function SignupPage() {
         })
        }
     }
+    router.push("/")
     return (
         <div className={styles.page}>
             <form onSubmit={submitData}>
